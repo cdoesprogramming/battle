@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require 'web_helpers.rb'
 
 class Battle < Sinatra::Base
   configure :development do
@@ -25,6 +24,11 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
   
+  get '/attack' do
+    @player_1 = session[:player_1]
+    @player_2 = session[:player_2]
+    erb :attack  
+  end
 
   run! if app_file == $0
 

@@ -18,3 +18,11 @@ describe "hit points", type: :feature do
     expect(page).to have_content 'Ed 60 hit points'
   end
 end
+
+feature "attack" do
+  scenario " attacking a player" do
+    sign_in_and_play
+    click_button 'Attack'
+    expect(page).to have_content 'Camilla attacked Ed' 
+  end
+end
