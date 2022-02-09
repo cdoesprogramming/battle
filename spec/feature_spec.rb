@@ -7,20 +7,14 @@ end
 
 describe "names", type: :feature do
   it "allows people to enter their name" do
-    visit "/"
-    fill_in "player_1", with: 'Camilla' 
-    fill_in "player_2", with: 'Ed'
-    click_button 'Submit'
+    sign_in_and_play
     expect(page).to have_content 'Camilla vs Ed'    
   end
 end
 
 describe "hit points", type: :feature do
   it "shows the user health score" do
-    visit "/"
-    fill_in "player_1", with: 'Camilla'
-    fill_in "player_2", with: 'Ed'
-    click_button 'Submit'
+    sign_in_and_play
     expect(page).to have_content 'Ed 60 hit points'
   end
 end

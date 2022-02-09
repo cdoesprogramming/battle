@@ -1,4 +1,5 @@
 require_relative '../app.rb'
+require 'web_helpers.rb'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'

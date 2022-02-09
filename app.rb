@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'web_helpers.rb'
 
 class Battle < Sinatra::Base
   configure :development do
@@ -7,11 +8,11 @@ class Battle < Sinatra::Base
   end
 
   enable :sessions
-
+  
   get '/' do
     erb(:index)
   end
-
+    
   get '/play' do
     @player_1 = session['player_1']
     @player_2 = session['player_2']
@@ -23,7 +24,7 @@ class Battle < Sinatra::Base
     session['player_2'] = params[:player_2]
     redirect '/play'
   end
-
+  
 
   run! if app_file == $0
 
